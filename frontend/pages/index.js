@@ -1,7 +1,14 @@
 import Head from "next/head";
+import { useEffect } from "react";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  useEffect(() => {
+    fetch("http://localhost:8080/api/")
+      .then((data) => data.json())
+      .then((json) => console.log(json));
+    return () => {};
+  }, []);
   return (
     <div className={styles.container}>
       <Head>
