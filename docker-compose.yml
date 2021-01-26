@@ -1,0 +1,15 @@
+version: "3.5"
+
+services:
+  app:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/app
+      - /app/node_module
+    ports:
+      - 3000:3000
+    command: npm run dev
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
